@@ -5,6 +5,7 @@
     <title>EcoByte</title>
     <link rel="stylesheet" href="../CSS/SesionEstilos.css">
     <link rel="stylesheet" href="../CSS/crearCuenta2.css">
+    <script type="text/javascript" src="../JS/crearCuentaMaestro.js"></script>
 </head>
 <body>
     <main>
@@ -13,7 +14,7 @@
             <h1>EcoByteOS</h1>
         </div>
 
-        <form>
+        <form  onsubmit="validarMaestro()">
             <div class="columna">
 
                 <div class="elemento">
@@ -23,12 +24,12 @@
 
                 <div class="elemento">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="nombre" id="nombre" pattern="[a-zA-Z\s]+">
                 </div>
 
                 <div class="elemento">
                     <label for="apellidos">Apellidos</label>
-                    <input type="text" name="apellidos" id="apellidos">
+                    <input type="text" name="apellidos" id="apellidos" pattern="[a-zA-Z\s]+">
                 </div>
 
                 <div class="elemento">
@@ -49,7 +50,7 @@
                         <label>Hombre</label>
                         <input type="radio" name="sexo" id="hombre">
                         <label>Mujer</label>
-                        <input type="radio" name="sexo" id="Mujer">
+                        <input type="radio" name="sexo" id="mujer">
                     </div>
                 </div>
 
@@ -119,6 +120,45 @@
             </div>
         </form>
     </main>
+
+    <script>
+        let select = document.getElementById("materia");
+        let materia = select.value;
+        let checkbox1 = document.getElementById("sub1");
+        let checkbox2 = document.getElementById("sub2");
+        let checkbox3 = document.getElementById("sub3");
+        let checkbox4 = document.getElementById("sub4");
+
+        function habilitar(){
+
+            let materia = select.value;
+            
+            if(materia == "Módulo de Alimentos y Bebidas" || materia == "Módulo de Hospedaje" || materia == "Módulo de Logística" || materia == "Módulo de Ofimática" || materia == "Módulo de Programación" || materia == "Módulo de Recursos Humanos"){
+                checkbox1.disabled = false;
+                checkbox2.disabled = false;
+                checkbox3.disabled = false;
+                checkbox4.disabled = false;
+            }
+
+            else{
+                checkbox1.disabled = true;
+                checkbox2.disabled = true;
+                checkbox3.disabled = true;
+                checkbox4.disabled = true;
+
+                checkbox1.checked = false;
+                checkbox2.checked = false;
+                checkbox3.checked = false;
+                checkbox4.checked = false;
+            }
+        }
+
+        habilitar();
+
+        select.addEventListener("input", function() {
+            habilitar();
+        });
+    </script>
     
 </body>
 </html>

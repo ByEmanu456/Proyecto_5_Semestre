@@ -5,7 +5,7 @@
     <title>EcoByte</title>
     <link rel="stylesheet" href="../CSS/SesionEstilos.css">
     <link rel="stylesheet" href="../CSS/crearCuenta2.css">
-    <script type="text/javascript" src="../JS/crearCuenta.js"></script>
+    <script type="text/javascript" src="../JS/crearCuentaAlumno.js"></script>
 </head>
 <body>
     <main>
@@ -23,7 +23,7 @@
 
                 <div class="elemento">
                     <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" pattern="[a-zA-Z]+">
+                    <input type="text" name="nombre" id="nombre" pattern="[a-zA-Z\s]+">
                 </div>
 
                 <div class="elemento">
@@ -129,7 +129,7 @@
         cargar();
 
         rango.addEventListener("input", function(){
-            valorActual.innerHTML = rango.value;
+            cargar();
         })
 
     </script>
