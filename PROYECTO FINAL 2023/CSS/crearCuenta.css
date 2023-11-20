@@ -1,0 +1,55 @@
+.eleccion{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;    
+}
+
+.alumno{
+    background-color: #E52B50;
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.maestro{
+    background-color: #318CE7;
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.eleccion img{
+    width: 80%;
+}
+
+.alumno:hover{
+    width: 75%;
+}
+
+.alumno:hover h1{
+    font-size: 45px;
+}
+
+.maestro:hover{
+    width: 75%;
+}
+
+.maestro:hover h1{
+    font-size: 45px;
+}
+
+
+
+
+
+

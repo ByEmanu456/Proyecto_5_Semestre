@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoByte</title>
+    <link rel="stylesheet" href="../CSS/SesionEstilos.css">
+    <link rel="stylesheet" href="../CSS/crearCuenta.css">
+</head>
+<body>
+    <main>
+        <div class="logo">
+            <img src="../Recursos/Imagenes/Iconos/favicon2.png">
+            <h1>EcoByteOS</h1>
+        </div>
+
+        <div class="eleccion">
+            <div class="alumno" id="btnAlumno" onclick="redireccionar('\crearCuentaAlumno.html')">
+                <img src="../Recursos/Imagenes/Iconos/alumno.png">
+                <h1>Soy Alumno</h1>
+            </div>
+            <div class="maestro" id="btnMaestro" onclick="redireccionar('\crearCuentaMaestro.html')">
+                <img src="../Recursos/Imagenes/Iconos/maestro.png">
+                <h1>Soy maestro</h1>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function redireccionar(ruta){
+            window.location.href = ruta;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoByte</title>
+    <link rel="stylesheet" href="../CSS/SesionEstilos.css">
+    <link rel="stylesheet" href="../CSS/crearCuenta2.css">
+</head>
+<body>
+    <main>
+        <div class="logo">
+            <img src="../Recursos/Imagenes/Iconos/favicon2.png">
+            <h1>EcoByteOS</h1>
+        </div>
+
+        <form>
+            <div class="columna">
+
+                <div class="elemento">
+                    <label for="numControl">Número de Control</label>
+                    <input type="number" name="numControl" id="numControl">                   
+                </div>
+
+                <div class="elemento">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre">
+                </div>
+
+                <div class="elemento">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" name="apellidos" id="apellidos">
+                </div>
+
+                <div class="elemento">
+                    <label for="fechaNac">Fecha de nacimiento</label>
+                    <input type="date" name="fechaNac" id="fechaNac">
+                </div>
+            </div>
+            <div class="columna">
+                
+                <div class="elemento">
+                    <label for="edad">Edad</label>
+                    <input type="number" name="edad" id="edad">
+                </div>
+                
+                <div class="elemento">
+                    <label for="sexo">Sexo</label>
+                    <div class="elemento2">
+                        <label>Hombre</label>
+                        <input type="radio" name="sexo" id="hombre">
+                        <label>Mujer</label>
+                        <input type="radio" name="sexo" id="Mujer">
+                    </div>
+                </div>
+
+                <div class="elemento">
+                    <label for="materia">Materia</label>
+                    <select name="materia" id="materia">
+                        <option>Álgebra</option>
+                        <option>Biología</option>
+                        <option>Ciencia, Tecnología, Sociedad y Valores</option>
+                        <option>Cálculo Diferencial</option>
+                        <option>Cálculo Integral</option>
+                        <option>Ecología</option>
+                        <option>Ética</option>
+                        <option>Física 1</option>
+                        <option>Física 2</option>
+                        <option>Geometría Analítica</option>
+                        <option>Geometría y Trigonometría</option>
+                        <option>Inglés 1</option>
+                        <option>Inglés 2</option>
+                        <option>Inglés 3</option>
+                        <option>Inglés 4</option>
+                        <option>Inglés 5</option>
+                        <option>LEOyE 1</option>
+                        <option>LEOyE 2</option>
+                        <option>Lógica</option>
+                        <option>Módulo de Alimentos y Bebidas</option>
+                        <option>Módulo de Hospedaje</option>
+                        <option>Módulo de Logística</option>
+                        <option>Módulo de Ofimática</option>
+                        <option>Módulo de Programación</option>
+                        <option>Módulo de Recursos Humanos</option>
+                        <option>Química 1</option>
+                        <option>Química 2</option>
+                    </select>
+                </div>
+
+                <div class="elemento">
+                    <label>Submodulos</label>
+                    <div class="elemento2">
+                        <input type="checkbox" name="submodulo" id="sub1">
+                        <label>Sub1</label>
+                        <input type="checkbox" name="submodulo" id="sub2">
+                        <label>Sub2</label>
+                        <input type="checkbox" name="submodulo" id="sub3">
+                        <label>Sub3</label>
+                        <input type="checkbox" name="submodulo" id="sub4">
+                        <label>Sub4</label>
+                    </div>
+                </div>      
+            </div>
+
+            <div class="columna">
+                <div class="elemento">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" id="usuario">
+                </div>
+                <div class="elemento">
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="password" name="contrasenia" id="contrasenia">
+                </div>
+                <div class="aceptoContenedor">
+                    <input type="checkbox" id="acepto">
+                    <p>Acepto que mis datos sean utilizados para un proyecto escolar</p>
+                </div>
+
+                <input type="submit">
+            </div>
+        </form>
+    </main>
+    
+</body>
+</html>
