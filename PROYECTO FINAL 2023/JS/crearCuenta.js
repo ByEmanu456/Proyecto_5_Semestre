@@ -1,6 +1,7 @@
+
 function validarAlumno(){
 
-    //Función que previene que la pagina se recargue
+    //Función que previente que la pagina se recargue
 
     event.preventDefault();
 
@@ -45,6 +46,7 @@ function validarAlumno(){
     let especialidad = document.getElementById("especialidad").value;
     let usuario = document.getElementById("usuario").value;
     let contrasenia = document.getElementById("contrasenia").value;
+    let color = document.getElementById("color").value;
     let checkbox = document.getElementById("acepto");
 
     const regEx = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()\-=_+{}<>?\[\]|]+$/;
@@ -56,17 +58,17 @@ function validarAlumno(){
         alert("El número de control es obligatorio");
         console.log("Number error!")
     }
-    
+
     else if(nombre.trim() == ""){
         alert("El nombre es obligatorio.");
         console.log("Name error!");
     }
-    
+
     else if(apellidos.trim() == ""){
         alert("Los apellidos son obligatorios.");
         console.log("Last name error!");
     }
-    
+
     else if(fechaNac.trim() == ""){
         alert("La fecha de nacimiento es obligatoria.");
         console.log("Birth date error!");
@@ -78,7 +80,7 @@ function validarAlumno(){
     }
 
     else if(sexo == null){
-        alert("El sexo es obligatorio.");
+        alert("El genero es obligatorio.");
         console.log("Gender error!");
     }
 
@@ -122,80 +124,32 @@ function validarAlumno(){
         console.log("Color error!");
 
     }
-    
+
     else if(!regExColor.test(color)){
         alert("El color debe tener un formato válido (por ejemplo, #FF0000).");
         console.log("Color error!");
     }
-    
+
     else if(!checkbox.checked){
         alert("Acepte las condiciones de uso")
         console.log("checkbox error!")
     }
 
     else{
-        //#region EN DESUSO: ////*
-        /*Los datos del usuario pasaron los pruebas y se llama a la función guardarDatosAlumno para pasar la información a localStorage.
 
+        //Los datos del usuario pasaron los pruebas y se llama a la función guardarDatosAlumno para pasar la información a localStorage.
+
+        console.log("Los datos ingresados han pasado las pruebas");
         guardarDatosAlumno(numControl, nombre, apellidos, fechaNac, edad, sexo, semestre, grupo, turno, especialidad, usuario, contrasenia, color);
-        
-        console.log("Redireccionando...");
-        //Esperar 5 segundos para redireccionar:
-        setTimeout(function(){
-            //Redireccionar al archivo PHP que hará la conexión con la base de datos:
-            window.location.href = "../PHP/registrarAlumno.html.php";
-        }, 5000); */
-        //TODO: Eliminar el time out pasadas las pruebas.
-        //#endregion
-
-        console.log("Los datos ingresados han pasado las pruebas!");
-        console.log("Redireccionando...");
-
-        //Esperar 8 segundos para redireccionar:
-        setTimeout(function(){
-            //Redireccionar al archivo PHP que hará la conexión con la base de datos:
-            redireccionar([
-                numControl, nombre, apellidos, fechaNac, edad, sexo, usuario, semestre, grupo, turno, especialidad, contrasenia
-            ]);
-        }, 8000);
-        //TODO: Eliminar el setTimeout pasadas las pruebas.
     }
 }
 
-function crearForm(atributos){
-    //Crear form:
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = "../PHP/resgistrarAlumno.html.php";
-
-    //Crear inputs y almacenar los datos:
-    let i = 1;
-    atributos.forEach(e => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = "param" + i;
-        input.value = e;
-
-        form.appendChild(input);
-        i++;
-    });
-
-    return form;
-}
-
-function redireccionar(arreglo){
-    new_form = crearForm(arreglo);
-
-    document.body.appendChild(form);
-    new_form.submit();
-}
-//#region EN DESUSO: ////*
 /*Función que guarda los datos ingresados en localStorage, sus parametros son todos los datos del formulario en el orden
 que fueron mostrados en el html, para faciliar el guardado de los datos se crea un objeto alumno que contiene todos los datos
-solicitados, para poder guadarlo en localStorage se codifica a JSON+/
+solicitados, para poder guadarlo en localStorage se codifica a JSON*/
 
 function guardarDatosAlumno(param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13){
-    
+
     console.log("Guardado de datos en local storage iniciado");
 
     let alumno = {
@@ -211,51 +165,18 @@ function guardarDatosAlumno(param1, param2, param3, param4, param5, param6, para
         especialidad: param10, 
         usuario: param11, 
         contrasenia: param12, 
+        color: param13
     }
 
-    let alumnoJSON = JSON.stringify(alumno);
+    let alumnoJson = JSON.stringify(alumno);
 
-    localStorage.setItem("alumno",alumnoJSON); 
-    
+    localStorage.setItem("alumno",alumnoJson); 
+
     console.log(tomarDatosAlumno());
 }
 
+/* Función que devuelve el objeto alumno con todos sus datos, como está en local storage ponla donde la necesites*/
 
-//? ⬇⬇⬇ Funciones usadas en "registrarAlumno.html.php" ⬇⬇⬇
-
-
-/+ Función que devuelve el objeto alumno con todos sus datos, como está en local storage ponla donde la necesites+/
-function tomarDatosAlumno(){
-    let alumnoJson = localStorage.getItem("alumno");
-    let alumno = JSON.parse(alumnoJson);
-    return alumno;
-}
-
-// Función que actualiza los inputs ocultos del formulario:
-function cargarFormulario(alumno){
-    document.getElementById("in1").value = alumno.numControl;
-    document.getElementById("in2").value = alumno.nombre;
-    document.getElementById("in3").value = alumno.apellidos;
-    document.getElementById("in4").value = alumno.fechaNac;
-    document.getElementById("in5").value = alumno.edad;
-    document.getElementById("in6").value = alumno.sexo;
-    document.getElementById("in7").value = alumno.usuario;
-    document.getElementById("in8").value = alumno.semestre;
-    document.getElementById("in9").value = alumno.grupo;
-    document.getElementById("in10").value = alumno.turno;
-    document.getElementById("in11").value = alumno.especialidad;
-    document.getElementById("in12").value = alumno.contrasenia;
-
-    console.log("Enviando al servidor...");
-
-    //Esperar 5 segundos para enviar el formulario:
-    setTimeout(function(){
-        //Enviar el formulario:
-        document.getElementById("hiddenForm").submit();
-    }, 5000);
-    //TODO: Eliminar el time out pasadas las pruebas.
-}*/
-//#endregion 
 function tomarDatosAlumno(){
     let alumnoJson = localStorage.getItem("alumno");
     let alumno = JSON.parse(alumnoJson);
