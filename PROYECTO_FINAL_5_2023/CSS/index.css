@@ -1,0 +1,246 @@
+/*Estilos de prueba para el desarrollo de la página*
+
+* {
+    border: 2px solid;
+    border-color: black;
+}
+
+/*Estilos del documento HTML principal*/
+
+html,body {
+    height: 100%;
+    overflow:hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(225, 216, 204);
+    display: flex;
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+
+    background-image: url(../Recursos/Imagenes/Fondos/index.jpg );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/*Estilos de los elementos de navegación de la izquierda*/
+
+nav{
+    height:fit-content;
+    width: 12%;
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+}
+
+.elemento{
+    width: 70px;
+    height: 100px;
+
+    padding-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.elemento:hover{
+    background-color: rgba(0, 34, 255, 0.344);
+}
+
+nav p{
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/*Estios de los elementos que muestran contenido en la derecha*/
+
+main{
+    padding: 60px;
+    padding-bottom: 100px;
+    flex: 1;
+    transition: opacity 0.5s ease;
+    
+}
+
+.MainCabecera{
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 10px;
+
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px ;
+
+    background: rgb(113,25,36);
+    background: linear-gradient(90deg, rgba(113,25,36,1) 0%, rgba(198,1,31,1) 50%, rgba(113,25,36,1) 100%);
+
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.MainCabecera *{
+    height: 70%;
+    color: white;
+}
+
+
+.MainCabecera img:hover{
+    border-radius: 10px;
+    outline: 3px solid white;
+}
+
+.MainContenido{
+    height: calc(100% - 110px);
+    padding: 30px;
+    padding-top: 10px;
+
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    background: rgb(0,48,143);
+    background: radial-gradient(circle, rgba(0,48,143,1) 0%, rgba(0,45,98,1) 100%);
+
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+
+}
+
+.MainContenido p{
+    color: white;
+    font-size: 25px;
+    margin: 0px;
+}
+
+
+.ContenedorBotones{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 50%;
+
+    bottom: 0;
+}
+
+.ContenedorBotones div{
+    width: 30%;
+    height: 100%;
+
+    border-radius: 15px;
+
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%);
+
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContenedorBotones div:hover{
+    outline: 6px solid rgb(0, 25, 62);
+    box-shadow: 5px 5px 10px rgb(41, 41, 41);
+    filter: brightness(100%);
+}
+
+.ContenedorBotones div h1{
+    font-size: 290%;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: white;
+    filter: none;
+}
+
+#btnConceptos{
+    background-image: url(../Recursos/Imagenes/Fondos/botones/conceptos.jpg);
+}
+
+#btnVideos{
+    background-image: url(../Recursos/Imagenes/Fondos/botones/video.webp);
+}
+
+#btnTest{
+    background-image: url(../Recursos/Imagenes/Fondos/botones/test.webp);
+}  
+
+/*ANIMACIONES*/
+
+.desaparecer{
+    opacity: 0;
+}
+
+.corto1{
+    width: 630px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.corto2{
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.corto3{
+    max-height: 300px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+form * {
+ margin-bottom: 40px;
+}
+
+form h2{
+    align-self: center;
+}
+
+form input{
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    border-bottom: 5px solid rgb(88, 194, 243);
+    height: 30px;
+    font-size: 25px;
+}
+
+form button{
+    height: 60px;
+    width: 150px;
+    margin-bottom: 0px;
+    border-radius: 20px;
+    background-color: rgb(88, 194, 243);
+    font-size: 25px;
+    align-self: center;
+    font-weight: 900;
+    color: rgb(18, 63, 83);
+}
+
+form button:hover{
+    outline: 5px solid white;
+}

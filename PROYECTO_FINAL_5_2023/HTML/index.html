@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoByte</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <script type="text/javascript" src="../JS/usuarioActivo.js"></script>
+    <script type="text/javascript" src="../JS/index.js"></script>
+
+    <script>
+        if(leerU() == null){
+            window.location.href = "iniciarSesion.html";
+        };
+    </script>
+
+</head>
+<body>
+   
+    <nav> 
+        <div class="Columna1">
+            <div class="elemento" ondblclick="verContenido(1)">
+                <img src="../Recursos/Imagenes/Iconos/LogoProvicional.png" alt="Descripción de la imagen">
+                <p>TEMA 1</p>
+            </div>      
+            
+            <div class="elemento" ondblclick="verContenido(2)">
+                <img src="../Recursos/Imagenes/Iconos/LogoProvicional.png" alt="Descripción de la imagen">
+                <p>TEMA 2</p>
+            </div>   
+ 
+            <div class="elemento" ondblclick="verContenido(3)">
+                <img src="../Recursos/Imagenes/Iconos/LogoProvicional.png" alt="Descripción de la imagen">
+                <p>TEMA 3</p>
+            </div>   
+
+            <div class="elemento" ondblclick="verContenido(4)">
+                <img src="../Recursos/Imagenes/Iconos/LogoProvicional.png" alt="Descripción de la imagen">
+                <p>TEMA 4</p>
+            </div>   
+        </div>
+       
+        <div class="Columna2">
+            <div class="elemento" ondblclick="verContenido(5)">
+                <img src="../Recursos/Imagenes/Iconos/LogoProvicional.png" alt="Descripción de la imagen">
+                <p>Usuario</p>
+            </div>   
+    
+            <div class="elemento" ondblclick="verContenido(6)">
+                <img src="../Recursos/Imagenes/Iconos/LogoProvicional.png" alt="Descripción de la imagen">
+                <p>Clases</p>
+            </div>   
+
+            <div class="elemento" ondblclick="verContenido(7)">
+                <img src="../Recursos/Imagenes/Iconos/LogoProvicional.png" alt="Descripción de la imagen">
+                <p>Info</p>
+            </div>
+        </div>
+    </nav>
+    
+    <main id="contenedorMain">
+        <div class="MainCabecera">
+            <h1>HOLA</h1>
+            <img id="btnCerrar" src="../Recursos/Imagenes/Iconos/equis.png" onclick="cerrarContenido()">
+        </div>
+        <div class="MainContenido">
+
+        </div>
+    </main>
+
+    <!--BARRA DE TAREAS-->
+
+    <link rel="stylesheet" href="../CSS/barraTareas.css">
+    <script type="text/javascript" src="../JS/barraTareas.js"></script>  
+
+    <div class="BarraTareas">
+        <img id="btnUsuario"  src="../Recursos/Imagenes/Iconos/usuario.png" onclick="toggleMenu()">
+        <img id="btnHome" src="../Recursos/Imagenes/Iconos/home.png" onclick="redireccionar('\index.html')">
+        <p id="fecha">Cargando Hora Espere...</p>
+        <marquee>Hola y bienvenido a nuestra página de cursos en nuestra nueva interfaz EcoByteOS | Si tienes alguna recomendación puedes enviar sugerencias al correo ecobyte_desarrolladores  @gmail.com | ¿Quiéres regresar al inicio? Porque no intentas dar clic al botón de Home</marquee>
+    </div>
+
+    <div class="MenuUsuario" id="menuUsuario"></div>
+
+</body>
+</html>

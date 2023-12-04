@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoByte</title>
+    <link rel="stylesheet" href="../CSS/SesionEstilos.css">
+    <link rel="stylesheet" href="../CSS/crearCuenta2.css">
+    <script type="text/javascript" src="../JS/validarAlumno.js"></script>
+</head>
+<body>
+    <main>
+        <div class="logo">
+            <img src="../Recursos/Imagenes/Iconos/favicon2.png">
+            <h1>EcoByteOS</h1>
+        </div>
+        <form id="formulario" action="../PHP/insertarAlumno.php" method="post">
+            <div class="columna">
+
+                <div class="elemento">
+                    <label for="numControl">Número de Control</label>
+                    <input type="number" name="numControl" id="numControl">                   
+                </div>
+
+                <div class="elemento">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" pattern="[a-zA-Z\s]+">
+                </div>
+
+                <div class="elemento">
+                    <label for="apellidos">Apellidos</label>
+                    <input type="text" name="apellidos" id="apellidos" pattern="[a-zA-Z\s]+">
+                </div>
+
+                <div class="elemento">
+                    <label for="fechaNac">Fecha de nacimiento</label>
+                    <input type="date" name="fechaNac" id="fechaNac">
+                </div>
+
+                <div class="elemento">
+                    <label for="edad">Edad</label>
+                    <input type="number" name="edad" id="edad">
+                </div>
+            </div>
+            <div class="columna">
+                
+                <div class="elemento">
+                    <label for="sexo">Sexo</label>
+                    <div class="elemento2">
+                        <label>Hombre</label>
+                        <input type="radio" name="sexo" id="hombre">
+                        <label>Mujer</label>
+                        <input type="radio" name="sexo" id="mujer">
+                    </div>
+                </div>
+
+                <div class="elemento">
+                    <label for="semestre">Semestre</label>
+                    <div class="elemento2">
+                        <input type="range" name="semestre" id="semestre" min="1" max="6" step="1">
+                        <label id="valorSem">Hola</label>
+                    </div>
+                </div> 
+
+                <div class="elemento">
+                    <label for="grupo">Grupo</label>
+                    <div class="elemento2">
+                        <label>A</label>
+                        <input type="radio" name="grupo" id="grupoA">
+                        <label>B</label>
+                        <input type="radio" name="grupo" id="grupoB">
+                    </div>
+                </div>
+
+                <div class="elemento">
+                    <label for="turno">Turno</label>
+                    <select name="turno" id="turno">
+                        <option>Matutino</option>
+                        <option>Vespertino</option>
+                    </select>
+                </div>
+
+                <div class="elemento">
+                    <label for="especialidad">Especialidad</label>
+                    <select name="especialidad" id="especialidad">
+                        <option>Programación</option>
+                        <option>Recursos Humanos</option>
+                        <option>Logistica</option>
+                        <option>Contabilidad</option>
+                        <option>Ofimática</option>
+                        <option>Hospedaje</option>
+                        <option>Alimentos y Bebidas</option>
+                    </select>
+                </div>      
+            </div>
+
+            <div class="columna">
+                <div class="elemento">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" name="usuario" id="usuario">
+                </div>
+                <div class="elemento">
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="password" name="contrasenia" id="contrasenia">
+                </div>
+                <div class="elemento">
+                    <label for="color">Seleccione un color</label>
+                    <input type="color" id="color" name="color">
+                </div>
+                <div class="aceptoContenedor">
+                    <input type="checkbox" id="acepto">
+                    <p>Estoy de acuerdo con que mi información será usada en un proyecto de programación</p>
+                </div>
+                <button onclick="validarAlumno()">Crear</button>
+            </div>
+        </form>
+    </main>   
+
+    <script>
+
+        //Script que actualiza el valor del range que se muestra al usuario
+
+        var rango = document.getElementById('semestre');
+        var valorActual = document.getElementById('valorSem');
+
+        function cargar(){
+            valorActual.innerHTML = rango.value;
+        }
+
+        cargar();
+
+        rango.addEventListener("input", function(){
+            cargar();
+        })
+
+    </script>
+</body>

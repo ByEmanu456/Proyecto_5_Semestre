@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EcoByte</title>
+    <link rel="stylesheet" href="../CSS/SesionEstilos.css">
+    <link rel="stylesheet" href="../CSS/iniciarSesion.css">
+</head>
+<body>
+    <main>
+        <div class="logo">
+            <img src="../Recursos/Imagenes/Iconos/favicon2.png">
+            <h1>EcoByteOS</h1>
+        </div>
+        <form method="post" action="../PHP/consultar.php">
+            
+            <h2>Inicio de Sesión</h2>
+
+            <div class="entrada">
+                <label>Número de control</label>
+                <input type="text" placeholder="Escriba su número de control" id="numControl" name="numControl">
+            </div>
+            
+            <div class="entrada">
+                <label>Contraseña</label>
+                <input type="password" placeholder="Ingrese su contraseña" id="contrasena" name="contrasenia">
+            </div>
+
+            <div class="entrada">
+                <label>Soy...</label>
+                <select name="persona">
+                    <option value="maestro">Maestro</option>
+                    <option value="alumno">Alumno</option>
+                </select>
+            </div>
+
+            <a href="CrearCuenta.html">¿No tiene una cuenta?</a>
+            
+            <input type="submit" value="Iniciar Sesión" class="boton">              
+        
+        </form>
+    </main>
+</body>
+</html>
