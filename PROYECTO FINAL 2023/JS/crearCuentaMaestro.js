@@ -1,4 +1,3 @@
-
 function validarMaestro(){
 
     //Función que previene que la pagina se recargue
@@ -38,10 +37,10 @@ function validarMaestro(){
         let checkbox4 = document.getElementById("sub4");
 
         submodulos = {
-            sub1: checkbox1.checked,
-            sub2: checkbox2.checked,
-            sub3: checkbox3.checked,
-            sub4: checkbox4.checked
+            sub1: checkbox1.checked ? "Activo" : "Inactivo",
+            sub2: checkbox2.checked ? "Activo" : "Inactivo",
+            sub3: checkbox3.checked ? "Activo" : "Inactivo",
+            sub4: checkbox4.checked ? "Activo" : "Inactivo"
         }
     }
 
@@ -118,16 +117,65 @@ function validarMaestro(){
     }
 
     else{
-        //Los datos del usuario pasaron los pruebas y se llama a la función guardarDatosAlumno para pasar la información a localStorage.
+        //#region  EN DESUSO: ////*
+        /*Los datos del usuario pasaron los pruebas y se llama a la función guardarDatosAlumno para pasar la información a localStorage.
 
-        console.log("Los datos ingresados han pasado las pruebas");
         guardarDatosMaestro(numControl, nombre, apellidos, fechaNac, edad, sexo, materia, submodulos, usuario, contrasenia);
+
+        //Esperar 5 segundos para redireccionar:
+        setTimeout(function(){
+            //Redireccionar al archivo PHP que hará la conexión con la base de datos:
+            window.location.href = "../PHP/registrarMaestro.html.php";
+        }, 5000);
+        //TODO: Eliminar el time out pasadas las pruebas. */
+        //#endregion
+
+        console.log("Los datos ingresados han pasado las pruebas!");
+        console.log("Redireccionando...");
+
+        //Esperar 8 segundos para redireccionar:
+        setTimeout(function(){
+            //Redireccionar al archivo PHP que hará la conexión con la base de datos:
+            redireccionar([
+                numControl, nombre, apellidos, fechaNac, edad, sexo, usuario, materia, submodulos, contrasenia
+            ]);
+        }, 8000);
+        //TODO: Eliminar el setTimeout pasadas las pruebas.
     }
 }
 
+function crearForm(atributos){
+    //Crear form:
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = "../PHP/resgistrarProfesor.html.php";
+
+    //Crear inputs y almacenar los datos:
+    let i = 1;
+    atributos.forEach(e => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = "param" + i;
+        input.value = e;
+
+        form.appendChild(input);
+        i++;
+    });
+
+    return form;
+}
+
+function redireccionar(arreglo){
+    new_form = crearForm(arreglo);
+
+    document.body.appendChild(form);
+    new_form.submit();
+}
+
+//#region EN DESUSO: ////*
 /*Función que guarda los datos ingresados en localStorage, sus parametros son todos los datos del formulario en el orden
 que fueron mostrados en el html, para faciliar el guardado de los datos se crea un objeto alumno que contiene todos los datos
-solicitados, para poder guadarlo en localStorage se codifica a JSON*/
+solicitados, para poder guadarlo en localStorage se codifica a JSON+/
 
 function guardarDatosMaestro(param1, param2, param3, param4, param5, param6, param7, param8, param9, param10){
 
@@ -146,17 +194,44 @@ function guardarDatosMaestro(param1, param2, param3, param4, param5, param6, par
         contrasenia: param10, 
     }
 
-    let alumnoJson = JSON.stringify(maestro);
+    let maestroJSON = JSON.stringify(maestro);
 
-    localStorage.setItem("maestro",alumnoJson); 
+    localStorage.setItem("maestro",maestroJSON); 
     
     console.log(tomarDatosMaestro());
 }
 
-/* Función que devuelve el objeto alumno con todos sus datos, como está en local storage ponla donde la necesites*/
 
+//? ⬇⬇⬇ Funciones usadas en "registrarProfesor.html.php" ⬇⬇⬇
+
+
+/+ Función que devuelve el objeto maestro con todos sus datos, como está en local storage ponla donde la necesites+/
 function tomarDatosMaestro(){
     let maestroJson = localStorage.getItem("maestro");
     let maestro = JSON.parse(maestroJson);
     return maestro;
 }
+
+// Función que actualiza los inputs ocultos del formulario:
+function cargarFormulario(maestro){
+    document.getElementById("in1").value = maestro.numControl;
+    document.getElementById("in2").value = maestro.nombre;
+    document.getElementById("in3").value = maestro.apellidos;
+    document.getElementById("in4").value = maestro.fechaNac;
+    document.getElementById("in5").value = maestro.edad;
+    document.getElementById("in6").value = maestro.sexo;
+    document.getElementById("in7").value = maestro.usuario;
+    document.getElementById("in8").value = maestro.materia;
+    document.getElementById("in9").value = maestro.submodulos;
+    document.getElementById("in10").value = maestro.turno;
+
+    console.log("Enviando al servidor...");
+
+    //Esperar 5 segundos para enviar el formulario:
+    setTimeout(function(){
+        //Enviar el formulario:
+        document.getElementById("hiddenForm").submit();
+    }, 5000);
+    //TODO: Eliminar el time out pasadas las pruebas.
+}*/
+//#endregion
